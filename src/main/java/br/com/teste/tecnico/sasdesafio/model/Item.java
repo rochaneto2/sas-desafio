@@ -1,5 +1,6 @@
 package br.com.teste.tecnico.sasdesafio.model;
 
+import br.com.teste.tecnico.sasdesafio.model.enums.OpcaoItemEnum;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
@@ -22,9 +23,9 @@ public class Item extends EntidadeBase<Integer>{
     private String descricao;
 
     @JsonProperty(value = "opcao", required = true)
+    @Enumerated(value = EnumType.STRING)
     @NotNull
-    @Size(min = 1, max = 1)
-    private Character opcao;
+    private OpcaoItemEnum opcao;
 
     @ManyToOne
     @JsonIgnore
