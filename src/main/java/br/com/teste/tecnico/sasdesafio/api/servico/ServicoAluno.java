@@ -27,6 +27,12 @@ public class ServicoAluno {
         return repositorioAluno.findAll();
     }
 
+    public Aluno buscarAlunoPorId(Integer id){
+        return ofOptional(repositorioAluno.findById(id)).getOrElseThrow(() -> {
+            throw new NoResultException("Não existe um aluno com o ID especificado!");
+        });
+    }
+
     @Transactional
     public Aluno salvarAluno(Aluno aluno){
         return repositorioAluno.saveAndFlush(aluno);
@@ -34,9 +40,7 @@ public class ServicoAluno {
 
     @Transactional
     public Aluno atualizarAluno(Integer id, Aluno aluno){
-        Aluno existente = ofOptional(repositorioAluno.findById(id)).getOrElseThrow(() -> {
-            throw new NoResultException("Não existe um aluno com o ID especificado!");
-        });
+        Aluno existente = buscarAlunoPorId(id);
 
         BeanUtils.copyProperties(aluno, existente, "id");
 
@@ -45,14 +49,7 @@ public class ServicoAluno {
         return existente;
     }
 
-    public Aluno buscarAlunoPorId(Integer id){
-        return ofOptional(repositorioAluno.findById(id)).getOrElseThrow(() -> {
-            throw new NoResultException("Não existe um aluno com o ID especificado!");
-        });
-    }
-
     public void removerAlunoPorId(Integer id){
         repositorioAluno.delete(buscarAlunoPorId(id));
     }
-
 }
