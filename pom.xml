@@ -16,7 +16,7 @@
 
 	<properties>
 		<java.version>11</java.version>
-		<deltaspike.version>1.9.0</deltaspike.version>
+		<vavr.version>0.10.0</vavr.version>
 	</properties>
 
 	<dependencies>
@@ -48,36 +48,10 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<!-- DeltaSpike -->
 		<dependency>
-			<groupId>org.apache.deltaspike.core</groupId>
-			<artifactId>deltaspike-core-impl</artifactId>
-			<version>${deltaspike.version}</version>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.deltaspike.modules</groupId>
-			<artifactId>deltaspike-data-module-api</artifactId>
-			<version>${deltaspike.version}</version>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.deltaspike.modules</groupId>
-			<artifactId>deltaspike-data-module-impl</artifactId>
-			<version>${deltaspike.version}</version>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.deltaspike.modules</groupId>
-			<artifactId>deltaspike-partial-bean-module-impl</artifactId>
-			<version>${deltaspike.version}</version>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.deltaspike.modules</groupId>
-			<artifactId>deltaspike-jpa-module-impl</artifactId>
-			<version>${deltaspike.version}</version>
-			<scope>runtime</scope>
+			<groupId>io.vavr</groupId>
+			<artifactId>vavr</artifactId>
+			<version>${vavr.version}</version>
 		</dependency>
 
 	</dependencies>

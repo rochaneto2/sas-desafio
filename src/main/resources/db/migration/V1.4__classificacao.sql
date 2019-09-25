@@ -1,6 +1,6 @@
-CREATE TABLE CLASSIFICACAO(
+CREATE TABLE classificacao(
     id                  SERIAL       PRIMARY KEY,
     nota                INT          NOT NULL,
-    id_simulado         INT          NOT NULL REFERENCES SIMULADO,
-    id_aluno            INT          NOT NULL REFERENCES ALUNO
+    id_simulado         INT          NOT NULL REFERENCES simulado,
+    id_aluno            INT          NOT NULL REFERENCES aluno
 );

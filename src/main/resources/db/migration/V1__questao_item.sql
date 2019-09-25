@@ -1,12 +1,12 @@
-CREATE TABLE QUESTAO (
+CREATE TABLE questao (
     id                  SERIAL       PRIMARY KEY,
     descricao           VARCHAR(255) NOT NULL,
     dificuldade         INT          NOT NULL
 );
 
-CREATE TABLE ITEM (
+CREATE TABLE item (
     id                  SERIAL       PRIMARY KEY,
     descricao           VARCHAR(255) NOT NULL,
     opcao               CHAR         NOT NULL,
-    id_questao          INT          NOT NULL REFERENCES QUESTAO
+    id_questao          INT          NOT NULL REFERENCES questao
 );

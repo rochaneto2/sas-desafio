@@ -1,10 +1,10 @@
 package br.com.teste.tecnico.sasdesafio.api.repositorio;
 
 import br.com.teste.tecnico.sasdesafio.model.Aluno;
-import br.com.teste.tecnico.sasdesafio.model.Classificacao;
-import org.apache.deltaspike.data.api.FullEntityRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface RepositorioAluno extends FullEntityRepository<Aluno, Integer> {
+public interface RepositorioAluno extends JpaRepository<Aluno, Integer> {
+
 }

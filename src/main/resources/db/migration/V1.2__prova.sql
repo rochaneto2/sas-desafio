@@ -1,8 +1,8 @@
-CREATE TABLE PROVA(
+CREATE TABLE prova(
     id                  SERIAL       PRIMARY KEY,
-    id_simulado         INT          NOT NULL REFERENCES SIMULADO,
+    id_simulado         INT          NOT NULL REFERENCES simulado,
     opcao               CHAR         NOT NULL,
-    id_questao          INT          NOT NULL REFERENCES QUESTAO
+    id_questao          INT          NOT NULL REFERENCES questao
 );
 
-ALTER TABLE QUESTAO ADD id_prova        INT         NOT NULL REFERENCES PROVA;
+ALTER TABLE questao ADD id_prova        INT         NOT NULL REFERENCES prova;
