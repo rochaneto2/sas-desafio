@@ -14,7 +14,8 @@ import java.util.List;
 @NoArgsConstructor
 @Data
 @Entity
-public class Prova extends EntidadeBase<Integer>{
+@Table(name = "prova")
+public class Prova extends EntidadeBase<Integer> {
 
     @JsonProperty(value = "simulado")
     @Valid
@@ -24,6 +25,11 @@ public class Prova extends EntidadeBase<Integer>{
     private Simulado simulado;
 
     @JsonProperty(value = "questoes")
-    @OneToMany(fetch = FetchType.LAZY, orphanRemoval = true, cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "prova", orphanRemoval = true, cascade = CascadeType.ALL)
     private List<Questao> questoes;
+
+    @PostPersist
+    private void posInserir() {
+        questoes.forEach(i -> i.setProva(this));
+    }
 }

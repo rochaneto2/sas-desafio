@@ -31,15 +31,15 @@ public class ServicoSimulado {
     }
 
     @Transactional
-    public Simulado salvarSimulado(Simulado Simulado){
-        return repositorioSimulado.saveAndFlush(Simulado);
+    public Simulado salvarSimulado(Simulado simulado){
+        return repositorioSimulado.saveAndFlush(simulado);
     }
 
     @Transactional
-    public Simulado atualizarSimulado(Integer id, Simulado Simulado){
+    public Simulado atualizarSimulado(Integer id, Simulado simulado){
         Simulado existente = buscarSimuladoPorId(id);
 
-        BeanUtils.copyProperties(Simulado, existente, "id");
+        BeanUtils.copyProperties(simulado, existente, "id");
 
         salvarSimulado(existente);
 

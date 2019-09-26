@@ -24,14 +24,14 @@ public class RecursoProva {
     }
 
     @PostMapping
-    public Prova salvar(@Valid @RequestBody Prova Prova){
-        return servicoProva.salvarProva(Prova);
+    public Prova salvar(@Valid @RequestBody Prova prova){
+        return servicoProva.salvarProva(prova);
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<Prova> atualizar(@PathVariable Integer id,
-                                           @Valid @RequestBody Prova Prova) {
-        return ResponseEntity.ok(servicoProva.atualizarProva(id, Prova));
+                                           @Valid @RequestBody Prova prova) {
+        return ResponseEntity.ok(servicoProva.atualizarProva(id, prova));
     }
 
     @GetMapping("/{id}")

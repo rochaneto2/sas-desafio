@@ -24,14 +24,14 @@ public class RecursoSimulado {
     }
 
     @PostMapping
-    public Simulado salvar(@Valid @RequestBody Simulado Simulado){
-        return servicoSimulado.salvarSimulado(Simulado);
+    public Simulado salvar(@Valid @RequestBody Simulado simulado){
+        return servicoSimulado.salvarSimulado(simulado);
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<Simulado> atualizar(@PathVariable Integer id,
-                                           @Valid @RequestBody Simulado Simulado) {
-        return ResponseEntity.ok(servicoSimulado.atualizarSimulado(id, Simulado));
+                                           @Valid @RequestBody Simulado simulado) {
+        return ResponseEntity.ok(servicoSimulado.atualizarSimulado(id, simulado));
     }
 
     @GetMapping("/{id}")

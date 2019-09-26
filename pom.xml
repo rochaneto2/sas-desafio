@@ -58,6 +58,12 @@
 			<artifactId>vavr</artifactId>
 			<version>${vavr.version}</version>
 		</dependency>
+		<!-- Hibernate -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<scope>provided</scope>
+		</dependency>
 
 	</dependencies>
 

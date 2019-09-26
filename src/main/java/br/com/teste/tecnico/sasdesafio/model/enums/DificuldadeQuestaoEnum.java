@@ -1,30 +1,39 @@
 package br.com.teste.tecnico.sasdesafio.model.enums;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.databind.JsonNode;
 
 import java.util.stream.Stream;
 
 public enum DificuldadeQuestaoEnum {
 
-    FACIL(15),
-    MEDIA(12),
-    DIFICIL(8);
+    FACIL("FACIL"),
+    MEDIA("MEDIA"),
+    DIFICIL("DIFICIL");
 
-    private final int codigo;
 
-    DificuldadeQuestaoEnum(int codigo) {
-        this.codigo = codigo;
+    @JsonProperty("value")
+    private String value;
+
+    DificuldadeQuestaoEnum(String value) {
+        this.value = value;
     }
 
     @JsonCreator
-    public static DificuldadeQuestaoEnum paraValor(Integer valor) {
-        return Stream.of(values()).filter(v -> v.codigo == valor).findFirst().get();
+    public static DificuldadeQuestaoEnum fromValue(final JsonNode jsonNode) {
+        for (DificuldadeQuestaoEnum type : values()) {
+            if (type.value.equals(jsonNode.asText())) {
+                return type;
+            }
+        }
+        return null;
     }
 
     @JsonValue
-    public int getCodigo() {
-        return this.codigo;
+    public String getValue() {
+        return value;
     }
 
 }
