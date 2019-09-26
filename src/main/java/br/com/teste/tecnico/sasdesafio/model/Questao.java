@@ -50,4 +50,7 @@ public class Questao extends EntidadeBase<Integer> {
         itens.forEach(i -> i.setQuestao(this));
     }
 
+    public Questao(@NotNull OpcaoItemEnum gabarito) {
+        this.gabarito = gabarito;
+    }
 }

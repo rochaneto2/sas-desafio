@@ -2,6 +2,8 @@ package br.com.teste.tecnico.sasdesafio.api.servico;
 
 import br.com.teste.tecnico.sasdesafio.api.repositorio.RepositorioProva;
 import br.com.teste.tecnico.sasdesafio.model.Prova;
+import br.com.teste.tecnico.sasdesafio.model.Questao;
+import br.com.teste.tecnico.sasdesafio.model.classesVO.GabaritoVO;
 import br.com.teste.tecnico.sasdesafio.model.enums.DificuldadeQuestaoEnum;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
@@ -38,7 +40,7 @@ public class ServicoProva {
 
     @Transactional
     public Prova salvarProva(Prova prova) {
-        verificaQuantidadeDeQuestoes(prova);
+//        verificaQuantidadeDeQuestoes(prova);
         return repositorioProva.saveAndFlush(prova);
     }
 
@@ -55,6 +57,10 @@ public class ServicoProva {
 
     public void removerProvaPorId(Integer id) {
         repositorioProva.delete(buscarProvaPorId(id));
+    }
+
+    public List<GabaritoVO> buscarGabaritoPorProva(Integer id) {
+        return repositorioProva.buscarGabaritosPorProva(id);
     }
 
     public boolean verificaQuantidadeDeQuestoes(Prova prova) {

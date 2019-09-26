@@ -8,7 +8,6 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.Optional;
 
 @Repository
 public interface RepositorioSimulado extends JpaRepository<Simulado, Integer> {
@@ -16,5 +15,4 @@ public interface RepositorioSimulado extends JpaRepository<Simulado, Integer> {
     @Query("SELECT distinct p FROM Prova p JOIN p.questoes q JOIN q.itens q JOIN p.simulado as s " +
             "where s.id =:id")
     List<Prova> bucasTodasAsProvasPorSimulado(@Param("id") Integer id);
-
 }

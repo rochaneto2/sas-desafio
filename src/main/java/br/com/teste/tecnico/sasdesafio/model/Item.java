@@ -19,7 +19,7 @@ public class Item extends EntidadeBase<Integer>{
 
     @JsonProperty(value = "descricao", required = true)
     @NotNull
-    @Size(min = 3, max = 255)
+    @Size(max = 255)
     private String descricao;
 
     @JsonProperty(value = "opcao", required = true)

@@ -20,7 +20,7 @@ public class Classificacao extends EntidadeBase<Integer>{
 
     @JsonProperty(value = "nota")
     @NotNull
-    @Max(value = 10)
+    @Max(value = 1000)
     @Min(value = 1)
     private Integer nota;
 
