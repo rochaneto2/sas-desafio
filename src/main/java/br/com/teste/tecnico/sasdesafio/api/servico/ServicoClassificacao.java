@@ -4,6 +4,7 @@ import br.com.teste.tecnico.sasdesafio.api.repositorio.RepositorioClassificacao;
 import br.com.teste.tecnico.sasdesafio.api.repositorio.RepositorioClassificacao;
 import br.com.teste.tecnico.sasdesafio.model.Classificacao;
 import org.springframework.beans.BeanUtils;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.NoResultException;
@@ -49,5 +50,9 @@ public class ServicoClassificacao {
 
     public void removerClassificacaoPorId(Integer id){
         repositorioClassificacao.delete(buscarClassificacaoPorId(id));
+    }
+
+    public List<Classificacao> buscarPorSimulado(Integer idSimulado, Integer limite){
+        return repositorioClassificacao.buscarIdSimulado(idSimulado, limite);
     }
 }

@@ -2,6 +2,7 @@ package br.com.teste.tecnico.sasdesafio.api.recurso;
 
 import br.com.teste.tecnico.sasdesafio.api.servico.ServicoClassificacao;
 import br.com.teste.tecnico.sasdesafio.model.Classificacao;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,36 +13,42 @@ import java.util.List;
 @RequestMapping({"/classificacoes"})
 public class RecursoClassificacao {
 
-    private ServicoClassificacao ServicoClassificacao;
+    private ServicoClassificacao servicoClassificacao;
 
-    RecursoClassificacao(ServicoClassificacao ServicoClassificacao) {
-        this.ServicoClassificacao = ServicoClassificacao;
+    RecursoClassificacao(ServicoClassificacao servicoClassificacao) {
+        this.servicoClassificacao = servicoClassificacao;
     }
 
     @GetMapping
     public List<Classificacao> listar(){
-        return ServicoClassificacao.listarClassificacaos();
+        return servicoClassificacao.listarClassificacaos();
     }
 
     @PostMapping
     public Classificacao salvar(@Valid @RequestBody Classificacao classificacao){
-        return ServicoClassificacao.salvarClassificacao(classificacao);
+        return servicoClassificacao.salvarClassificacao(classificacao);
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<Classificacao> atualizar(@PathVariable Integer id,
                                            @Valid @RequestBody Classificacao classificacao) {
-        return ResponseEntity.ok(ServicoClassificacao.atualizarClassificacao(id, classificacao));
+        return ResponseEntity.ok(servicoClassificacao.atualizarClassificacao(id, classificacao));
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Classificacao> buscarPorId(@PathVariable Integer id) {
-        return ResponseEntity.ok(ServicoClassificacao.buscarClassificacaoPorId(id));
+        return ResponseEntity.ok(servicoClassificacao.buscarClassificacaoPorId(id));
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity remover(@PathVariable Integer id) {
-        ServicoClassificacao.removerClassificacaoPorId(id);
+        servicoClassificacao.removerClassificacaoPorId(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/simulado/{idSimulado}/{limite}")
+    public ResponseEntity buscarClassificacaoPorSimulado(@PathVariable Integer idSimulado,
+                                                         @PathVariable Integer limite){
+        return ResponseEntity.ok(servicoClassificacao.buscarPorSimulado(idSimulado, limite));
     }
 }
