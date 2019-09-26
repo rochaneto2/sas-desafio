@@ -1,6 +1,7 @@
 package br.com.teste.tecnico.sasdesafio.api.servico;
 
 import br.com.teste.tecnico.sasdesafio.api.repositorio.RepositorioSimulado;
+import br.com.teste.tecnico.sasdesafio.model.Prova;
 import br.com.teste.tecnico.sasdesafio.model.Simulado;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
 import javax.persistence.NoResultException;
 import javax.transaction.Transactional;
 import java.util.List;
+import static io.vavr.API.Option;
 
 import static io.vavr.control.Option.ofOptional;
 
@@ -48,5 +50,9 @@ public class ServicoSimulado {
 
     public void removerSimuladoPorId(Integer id){
         repositorioSimulado.delete(buscarSimuladoPorId(id));
+    }
+
+    public List<Prova> bucasTodasAsProvasPorSimulado(Integer id){
+        return repositorioSimulado.bucasTodasAsProvasPorSimulado(id);
     }
 }

@@ -44,4 +44,9 @@ public class RecursoSimulado {
         servicoSimulado.removerSimuladoPorId(id);
         return ResponseEntity.noContent().build();
     }
+
+    @GetMapping("/{id}/provas")
+    public ResponseEntity buscarProvasPorSimulado(@PathVariable Integer id){
+        return ResponseEntity.ok(servicoSimulado.bucasTodasAsProvasPorSimulado(id));
+    }
 }
