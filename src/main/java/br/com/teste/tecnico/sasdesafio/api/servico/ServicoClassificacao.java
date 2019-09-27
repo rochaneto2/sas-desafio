@@ -1,10 +1,16 @@
 package br.com.teste.tecnico.sasdesafio.api.servico;
 
 import br.com.teste.tecnico.sasdesafio.api.repositorio.RepositorioClassificacao;
+import br.com.teste.tecnico.sasdesafio.model.Aluno;
 import br.com.teste.tecnico.sasdesafio.model.Classificacao;
+import br.com.teste.tecnico.sasdesafio.model.Simulado;
+import br.com.teste.tecnico.sasdesafio.model.classesVO.ClassificacaoRankingVO;
+import io.vavr.control.Option;
 import org.springframework.beans.BeanUtils;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
+import org.w3c.dom.css.Counter;
+import static io.vavr.API.Option;
 
 import javax.persistence.NoResultException;
 import javax.transaction.Transactional;
@@ -51,7 +57,14 @@ public class ServicoClassificacao {
         repositorioClassificacao.delete(buscarClassificacaoPorId(id));
     }
 
-    public List<Classificacao> buscarPorSimulado(Integer idSimulado, Integer limite) {
-        return repositorioClassificacao.buscarIdSimulado(idSimulado, PageRequest.of(0, limite));
+    public List<ClassificacaoRankingVO> buscarClassificacaoPorSimulado(Integer idSimulado, Integer limite) {
+        List<ClassificacaoRankingVO> classificacaoRanking = repositorioClassificacao.buscarClassificacaoPorSimulado(idSimulado, PageRequest.of(0, limite));
+        List<Integer> ranking = repositorioClassificacao.buscarRankingSimulado(idSimulado, limite);
+        int posicaoRanking = 0;
+        for(ClassificacaoRankingVO classificacao : classificacaoRanking){
+            classificacao.setPosRanking(ranking.get(posicaoRanking));
+            posicaoRanking = posicaoRanking + 1;
+        }
+        return classificacaoRanking;
     }
 }

@@ -2,6 +2,8 @@ package br.com.teste.tecnico.sasdesafio.api.servico;
 
 import br.com.teste.tecnico.sasdesafio.api.repositorio.RepositorioProva;
 import br.com.teste.tecnico.sasdesafio.model.Prova;
+import br.com.teste.tecnico.sasdesafio.model.Questao;
+import br.com.teste.tecnico.sasdesafio.model.classesVO.PostResponderQuestaoVO;
 import br.com.teste.tecnico.sasdesafio.model.util.QtdQuestoes;
 import br.com.teste.tecnico.sasdesafio.model.classesVO.GabaritoVO;
 import br.com.teste.tecnico.sasdesafio.model.enums.DificuldadeQuestaoEnum;
@@ -19,6 +21,8 @@ import static io.vavr.API.Option;
 public class ServicoProva {
 
     private RepositorioProva repositorioProva;
+
+    private ServicoQuestao servicoQuestao;
 
     ServicoProva(RepositorioProva repositorioProva) {
         this.repositorioProva = repositorioProva;
@@ -80,5 +84,18 @@ public class ServicoProva {
         } else {
             return true;
         }
+    }
+
+    public String resolverProva(List<PostResponderQuestaoVO> questoes){
+        Integer notaFinal = 0;
+        for (PostResponderQuestaoVO questaoResposta : questoes){
+            Questao questao = servicoQuestao.buscarQuestaoPorId(questaoResposta.getIdQuestao());
+            Integer valorDaQuestao = servicoQuestao.buscarValorDaQuestaoPorDificuldade(questao.getDificuldade().getValue());
+            if (questaoResposta.getOpcao() == questao.getGabarito()) {
+                notaFinal = notaFinal + valorDaQuestao;
+            }
+        }
+        notaFinal = notaFinal + 600;
+        return "A nota final do aluno foi : "+ notaFinal;
     }
 }

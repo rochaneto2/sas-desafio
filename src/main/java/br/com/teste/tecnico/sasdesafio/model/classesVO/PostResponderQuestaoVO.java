@@ -31,4 +31,8 @@ public class PostResponderQuestaoVO implements Serializable {
     public OpcaoItemEnum getOpcao() {
         return opcao;
     }
+
+    public Integer getIdQuestao() {
+        return idQuestao;
+    }
 }

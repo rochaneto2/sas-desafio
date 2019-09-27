@@ -3,6 +3,7 @@ package br.com.teste.tecnico.sasdesafio.api.recurso;
 import br.com.teste.tecnico.sasdesafio.api.servico.ServicoProva;
 import br.com.teste.tecnico.sasdesafio.model.Prova;
 import br.com.teste.tecnico.sasdesafio.model.classesVO.GabaritoVO;
+import br.com.teste.tecnico.sasdesafio.model.classesVO.PostResponderQuestaoVO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -49,5 +50,10 @@ public class RecursoProva {
     @GetMapping("/{id}/gabarito")
     public ResponseEntity<List<GabaritoVO>> buscarGabaritoPorProva(@PathVariable Integer id) {
         return ResponseEntity.ok(servicoProva.buscarGabaritoPorProva(id));
+    }
+
+    @PostMapping("/resolverProva")
+    public String resolverProva(@Valid @RequestBody List<PostResponderQuestaoVO> questoes){
+        return servicoProva.resolverProva(questoes);
     }
 }

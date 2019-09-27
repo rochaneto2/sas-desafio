@@ -48,6 +48,6 @@ public class RecursoClassificacao {
     @GetMapping("/simulado/{idSimulado}")
     public ResponseEntity buscarClassificacaoPorSimulado(@PathVariable Integer idSimulado,
                                                          @RequestParam Integer limite) {
-        return ResponseEntity.ok(servicoClassificacao.buscarPorSimulado(idSimulado, limite));
+        return ResponseEntity.ok(servicoClassificacao.buscarClassificacaoPorSimulado(idSimulado, limite));
     }
 }
