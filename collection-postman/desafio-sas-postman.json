@@ -1,0 +1,765 @@
+{
+	"info": {
+		"_postman_id": "0ab0ce3d-078f-420d-b946-663aa7dc07c3",
+		"name": "desafio-sas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Aluno - Crud exemplo",
+			"item": [
+				{
+					"name": "Salvar Aluno",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJneXVDdDNrN2d3TjBqbXlwSUc2enRFVDNVVm50cXVKUTVveTRtcVR1Uk1nIn0.eyJqdGkiOiJiOTU4YjFkNS1kNjJjLTRhOTEtOTA1My0xYjllNmQ0MTNmNjEiLCJleHAiOjE1NjkwMTYzNTUsIm5iZiI6MCwiaWF0IjoxNTY4OTk4MzU1LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwOTAvYXV0aC9yZWFsbXMvR0VSQTMiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiY2NmYzFlNDEtNmVmYi00MDMwLTk2ZWEtMjQ4OTBhMzg2ODAzIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoibW9kdWxvLXJldGFndWFyZGF2aWV3IiwiYXV0aF90aW1lIjowLCJzZXNzaW9uX3N0YXRlIjoiNWQzYzU4ZGYtNGNkMi00OTMzLWJhMDAtNzdkNDg3ODZiZWE5IiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyJodHRwOi8vbG9jYWxob3N0OjQyMDAvKiIsImh0dHA6Ly9sb2NhbGhvc3Q6NDIwMCJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7Im1vZHVsby1yZXRhZ3VhcmRhdmlldyI6eyJyb2xlcyI6WyJNQVNURVIiXX0sImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiIiwibmFtZSI6IlJvY2hhIE5ldG8iLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJyb2NoYW5ldG8iLCJnaXZlbl9uYW1lIjoiUm9jaGEiLCJmYW1pbHlfbmFtZSI6Ik5ldG8iLCJlbWFpbCI6InJvY2hhbmV0bzJAZ21haWwuY29tIn0.iY7kd_PlNrM4bUOdYoeVoDcM7V9AKQpdnHOvZ-3ZSZrA3nET9yIUEEODEruRiqpQE_r5GiwVPVuik0-z0vsrePBPXYmxxY71XZcB5bR6oYNf7kirKr60twYy18dAHafTpof0eXi_eT8L_n2UdzBa8Gl6NQq32RKsmtfpFeDCA5JHtVmZpCVYZnHmuNICIA-3xSHn_GsW5Wx6pr6QxhRXSysx2OdGlTpuQ7LWxijjCOpbY9VW6-GELqOVgHV3C-DnD_nRywMmnhcYpeNwXXHXJExl3_Fj0JJgfvr2gBN3OyULIbX283Zz8TTWm-y7QhC0OKEp41VJ-omOStSWvECbPA",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\" : null,\n\t\"nome\" : \"Carlos\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/alunos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"alunos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Trazer todos os alunos",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJneXVDdDNrN2d3TjBqbXlwSUc2enRFVDNVVm50cXVKUTVveTRtcVR1Uk1nIn0.eyJqdGkiOiJiOTU4YjFkNS1kNjJjLTRhOTEtOTA1My0xYjllNmQ0MTNmNjEiLCJleHAiOjE1NjkwMTYzNTUsIm5iZiI6MCwiaWF0IjoxNTY4OTk4MzU1LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwOTAvYXV0aC9yZWFsbXMvR0VSQTMiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiY2NmYzFlNDEtNmVmYi00MDMwLTk2ZWEtMjQ4OTBhMzg2ODAzIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoibW9kdWxvLXJldGFndWFyZGF2aWV3IiwiYXV0aF90aW1lIjowLCJzZXNzaW9uX3N0YXRlIjoiNWQzYzU4ZGYtNGNkMi00OTMzLWJhMDAtNzdkNDg3ODZiZWE5IiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyJodHRwOi8vbG9jYWxob3N0OjQyMDAvKiIsImh0dHA6Ly9sb2NhbGhvc3Q6NDIwMCJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7Im1vZHVsby1yZXRhZ3VhcmRhdmlldyI6eyJyb2xlcyI6WyJNQVNURVIiXX0sImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiIiwibmFtZSI6IlJvY2hhIE5ldG8iLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJyb2NoYW5ldG8iLCJnaXZlbl9uYW1lIjoiUm9jaGEiLCJmYW1pbHlfbmFtZSI6Ik5ldG8iLCJlbWFpbCI6InJvY2hhbmV0bzJAZ21haWwuY29tIn0.iY7kd_PlNrM4bUOdYoeVoDcM7V9AKQpdnHOvZ-3ZSZrA3nET9yIUEEODEruRiqpQE_r5GiwVPVuik0-z0vsrePBPXYmxxY71XZcB5bR6oYNf7kirKr60twYy18dAHafTpof0eXi_eT8L_n2UdzBa8Gl6NQq32RKsmtfpFeDCA5JHtVmZpCVYZnHmuNICIA-3xSHn_GsW5Wx6pr6QxhRXSysx2OdGlTpuQ7LWxijjCOpbY9VW6-GELqOVgHV3C-DnD_nRywMmnhcYpeNwXXHXJExl3_Fj0JJgfvr2gBN3OyULIbX283Zz8TTWm-y7QhC0OKEp41VJ-omOStSWvECbPA",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/alunos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"alunos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Alterar dados do aluno",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJneXVDdDNrN2d3TjBqbXlwSUc2enRFVDNVVm50cXVKUTVveTRtcVR1Uk1nIn0.eyJqdGkiOiJiOTU4YjFkNS1kNjJjLTRhOTEtOTA1My0xYjllNmQ0MTNmNjEiLCJleHAiOjE1NjkwMTYzNTUsIm5iZiI6MCwiaWF0IjoxNTY4OTk4MzU1LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwOTAvYXV0aC9yZWFsbXMvR0VSQTMiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiY2NmYzFlNDEtNmVmYi00MDMwLTk2ZWEtMjQ4OTBhMzg2ODAzIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoibW9kdWxvLXJldGFndWFyZGF2aWV3IiwiYXV0aF90aW1lIjowLCJzZXNzaW9uX3N0YXRlIjoiNWQzYzU4ZGYtNGNkMi00OTMzLWJhMDAtNzdkNDg3ODZiZWE5IiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyJodHRwOi8vbG9jYWxob3N0OjQyMDAvKiIsImh0dHA6Ly9sb2NhbGhvc3Q6NDIwMCJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7Im1vZHVsby1yZXRhZ3VhcmRhdmlldyI6eyJyb2xlcyI6WyJNQVNURVIiXX0sImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiIiwibmFtZSI6IlJvY2hhIE5ldG8iLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJyb2NoYW5ldG8iLCJnaXZlbl9uYW1lIjoiUm9jaGEiLCJmYW1pbHlfbmFtZSI6Ik5ldG8iLCJlbWFpbCI6InJvY2hhbmV0bzJAZ21haWwuY29tIn0.iY7kd_PlNrM4bUOdYoeVoDcM7V9AKQpdnHOvZ-3ZSZrA3nET9yIUEEODEruRiqpQE_r5GiwVPVuik0-z0vsrePBPXYmxxY71XZcB5bR6oYNf7kirKr60twYy18dAHafTpof0eXi_eT8L_n2UdzBa8Gl6NQq32RKsmtfpFeDCA5JHtVmZpCVYZnHmuNICIA-3xSHn_GsW5Wx6pr6QxhRXSysx2OdGlTpuQ7LWxijjCOpbY9VW6-GELqOVgHV3C-DnD_nRywMmnhcYpeNwXXHXJExl3_Fj0JJgfvr2gBN3OyULIbX283Zz8TTWm-y7QhC0OKEp41VJ-omOStSWvECbPA",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\" : 1,\n\t\"nome\" : \"Marcelo\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/alunos/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"alunos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar aluno",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJneXVDdDNrN2d3TjBqbXlwSUc2enRFVDNVVm50cXVKUTVveTRtcVR1Uk1nIn0.eyJqdGkiOiJiOTU4YjFkNS1kNjJjLTRhOTEtOTA1My0xYjllNmQ0MTNmNjEiLCJleHAiOjE1NjkwMTYzNTUsIm5iZiI6MCwiaWF0IjoxNTY4OTk4MzU1LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwOTAvYXV0aC9yZWFsbXMvR0VSQTMiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiY2NmYzFlNDEtNmVmYi00MDMwLTk2ZWEtMjQ4OTBhMzg2ODAzIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoibW9kdWxvLXJldGFndWFyZGF2aWV3IiwiYXV0aF90aW1lIjowLCJzZXNzaW9uX3N0YXRlIjoiNWQzYzU4ZGYtNGNkMi00OTMzLWJhMDAtNzdkNDg3ODZiZWE5IiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyJodHRwOi8vbG9jYWxob3N0OjQyMDAvKiIsImh0dHA6Ly9sb2NhbGhvc3Q6NDIwMCJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7Im1vZHVsby1yZXRhZ3VhcmRhdmlldyI6eyJyb2xlcyI6WyJNQVNURVIiXX0sImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiIiwibmFtZSI6IlJvY2hhIE5ldG8iLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJyb2NoYW5ldG8iLCJnaXZlbl9uYW1lIjoiUm9jaGEiLCJmYW1pbHlfbmFtZSI6Ik5ldG8iLCJlbWFpbCI6InJvY2hhbmV0bzJAZ21haWwuY29tIn0.iY7kd_PlNrM4bUOdYoeVoDcM7V9AKQpdnHOvZ-3ZSZrA3nET9yIUEEODEruRiqpQE_r5GiwVPVuik0-z0vsrePBPXYmxxY71XZcB5bR6oYNf7kirKr60twYy18dAHafTpof0eXi_eT8L_n2UdzBa8Gl6NQq32RKsmtfpFeDCA5JHtVmZpCVYZnHmuNICIA-3xSHn_GsW5Wx6pr6QxhRXSysx2OdGlTpuQ7LWxijjCOpbY9VW6-GELqOVgHV3C-DnD_nRywMmnhcYpeNwXXHXJExl3_Fj0JJgfvr2gBN3OyULIbX283Zz8TTWm-y7QhC0OKEp41VJ-omOStSWvECbPA",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/alunos/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"alunos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Trazer aluno por id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/alunos/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"alunos",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "5d543d62-92ab-4dcb-b17c-222ab32e4006",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "3fa709de-91ba-4549-aa03-e2b8406f1f25",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Simulado",
+			"item": [
+				{
+					"name": "Trazer todos os simulados",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t   \n\t    \"id\" :null,\n\t    \"nota\": 650,\n\t    \"simulado\" : {\n\t    \t\"descricao\": \"Simulado Christus\",\n\t    \t\"data\": \"25/04/1992\",\n\t    \t\"id\": 1\n\t    },\n\t    \"aluno\" : {\n\t    \t\"id\" : 1,\n\t    \t\"nome\" : \"ROBERTO\"\n\t    }\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/simulados",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"simulados"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Salvar simulado",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t   \n\t    \"descricao\": \"Simulado 4\",\n\t    \"data\": \"22/04/1995\",\n\t    \"id\": null\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/simulados",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"simulados"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Alterar dados do simulado",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t   \n\t    \"descricao\": \"Simulado Teste\",\n\t    \"data\": \"22/04/1995\",\n\t    \"id\": 2\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/simulados/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"simulados",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar simulado",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/simulados/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"simulados",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar provas por id simulado",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/simulados/1/provas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"simulados",
+								"1",
+								"provas"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Prova",
+			"item": [
+				{
+					"name": "Trazer todas as provas com questões e itens",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/provas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"provas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Salvar Prova com todas as questões e itens",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\" : null,\n\t\"simulado\" : {\n\t    \"descricao\": \"Simulado 1\",\n\t    \"data\": \"22/04/1005\",\n\t    \"id\": 1\n\t},\n\t\"questoes\" : [{\n\t\t\"id\" : null,\n\t\t\"descricao\" : \"Em que ano o Brasil foi descoberto ?\",\n\t\t\"dificuldade\" : \"FACIL\",\n\t\t\"gabarito\" : \"A\",\n\t\t\"itens\": [{\n\t\t\t\"id\" : null,\n\t\t\t\"descricao\" : \"1500\",\n\t\t\t\"opcao\" : \"A\"\n\t\t},\n\t\t{\n\t\t\t\"id\" : null,\n\t\t\t\"descricao\" : \"1400\",\n\t\t\t\"opcao\" : \"B\"\n\t\t},\n\t\t{\n\t\t\t\"id\" : null,\n\t\t\t\"descricao\" : \"1300\",\n\t\t\t\"opcao\" : \"C\"\n\t\t},\n\t\t{\n\t\t\t\"id\" : null,\n\t\t\t\"descricao\" : \"1200\",\n\t\t\t\"opcao\" : \"D\"\n\t\t},\n\t\t{\n\t\t\t\"id\" : null,\n\t\t\t\"descricao\" : \"1150\",\n\t\t\t\"opcao\" : \"E\"\n\t\t}]\n\t}, {\n\t\t\"id\" : null,\n\t\t\"descricao\" : \"Em que ano a America do Norta foi descoberta ?\",\n\t\t\"dificuldade\" : \"MEDIA\",\n\t\t\"gabarito\" : \"A\",\n\t\t\"itens\": [{\n\t\t\t\"id\" : null,\n\t\t\t\"descricao\" : \"1492\",\n\t\t\t\"opcao\" : \"A\"\n\t\t},\n\t\t{\n\t\t\t\"id\" : null,\n\t\t\t\"descricao\" : \"1420\",\n\t\t\t\"opcao\" : \"B\"\n\t\t},\n\t\t{\n\t\t\t\"id\" : null,\n\t\t\t\"descricao\" : \"1310\",\n\t\t\t\"opcao\" : \"C\"\n\t\t},\n\t\t{\n\t\t\t\"id\" : null,\n\t\t\t\"descricao\" : \"1290\",\n\t\t\t\"opcao\" : \"D\"\n\t\t},\n\t\t{\n\t\t\t\"id\" : null,\n\t\t\t\"descricao\" : \"1180\",\n\t\t\t\"opcao\" : \"E\"\n\t\t}]\n\t}, {\n\t\t\"id\" : null,\n\t\t\"descricao\" : \"Qual é o resultando de um número inteiro que tem expoente 0 ?\",\n\t\t\"dificuldade\" : \"DIFICIL\",\n\t\t\"gabarito\" : \"A\",\n\t\t\"itens\": [{\n\t\t\t\"id\" : null,\n\t\t\t\"descricao\" : \"1\",\n\t\t\t\"opcao\" : \"A\"\n\t\t},\n\t\t{\n\t\t\t\"id\" : null,\n\t\t\t\"descricao\" : \"2\",\n\t\t\t\"opcao\" : \"B\"\n\t\t},\n\t\t{\n\t\t\t\"id\" : null,\n\t\t\t\"descricao\" : \"0\",\n\t\t\t\"opcao\" : \"C\"\n\t\t},\n\t\t{\n\t\t\t\"id\" : null,\n\t\t\t\"descricao\" : \"-1\",\n\t\t\t\"opcao\" : \"D\"\n\t\t}]\n\t}, {\n\t\t\"id\" : null,\n\t\t\"descricao\" : \"Qual é o valor resultante de 2+2 ?\",\n\t\t\"dificuldade\" : \"FACIL\",\n\t\t\"gabarito\" : \"B\",\n\t\t\"itens\": [{\n\t\t\t\"id\" : null,\n\t\t\t\"descricao\" : \"8\",\n\t\t\t\"opcao\" : \"A\"\n\t\t},\n\t\t{\n\t\t\t\"id\" : null,\n\t\t\t\"descricao\" : \"4\",\n\t\t\t\"opcao\" : \"B\"\n\t\t},\n\t\t{\n\t\t\t\"id\" : null,\n\t\t\t\"descricao\" : \"13\",\n\t\t\t\"opcao\" : \"C\"\n\t\t}]\n\t}, {\n\t\t\"id\" : null,\n\t\t\"descricao\" : \"Qual valor resultante de 4x3 ?\",\n\t\t\"dificuldade\" : \"MEDIA\",\n\t\t\"gabarito\" : \"C\",\n\t\t\"itens\": [{\n\t\t\t\"id\" : null,\n\t\t\t\"descricao\" : \"10\",\n\t\t\t\"opcao\" : \"A\"\n\t\t},\n\t\t{\n\t\t\t\"id\" : null,\n\t\t\t\"descricao\" : \"8\",\n\t\t\t\"opcao\" : \"B\"\n\t\t},\n\t\t{\n\t\t\t\"id\" : null,\n\t\t\t\"descricao\" : \"12\",\n\t\t\t\"opcao\" : \"C\"\n\t\t}]\n\t}, {\n\t\t\"id\" : null,\n\t\t\"descricao\" : \"Indique verdadeiro ou falso : A idade média veio antes da Revolução Francesa ?\",\n\t\t\"dificuldade\" : \"MEDIA\",\n\t\t\"gabarito\" : \"B\",\n\t\t\"itens\": [{\n\t\t\t\"id\" : null,\n\t\t\t\"descricao\" : \"VERDADEIRO\",\n\t\t\t\"opcao\" : \"A\"\n\t\t},\n\t\t{\n\t\t\t\"id\" : null,\n\t\t\t\"descricao\" : \"FALSO\",\n\t\t\t\"opcao\" : \"B\"\n\t\t}]\n\t},{\n\t\t\"id\" : null,\n\t\t\"descricao\" : \"Indique verdadeiro ou falso : A atual presidente do Brasil se chama Dilma ?\",\n\t\t\"dificuldade\" : \"MEDIA\",\n\t\t\"gabarito\" : \"B\",\n\t\t\"itens\": [{\n\t\t\t\"id\" : null,\n\t\t\t\"descricao\" : \"VERDADEIRO\",\n\t\t\t\"opcao\" : \"A\"\n\t\t},\n\t\t{\n\t\t\t\"id\" : null,\n\t\t\t\"descricao\" : \"FALSO\",\n\t\t\t\"opcao\" : \"B\"\n\t\t}]\n\t},{\n\t\t\"descricao\" : \"Indique verdadeiro ou falso : O Brasil faz parte do Mercosul ?\",\n\t\t\"dificuldade\" : \"DIFICIL\",\n\t\t\"gabarito\" : \"A\",\n\t\t\"itens\": [{\n\t\t\t\"id\" : null,\n\t\t\t\"descricao\" : \"VERDADEIRO\",\n\t\t\t\"opcao\" : \"A\"\n\t\t},\n\t\t{\n\t\t\t\"id\" : null,\n\t\t\t\"descricao\" : \"FALSO\",\n\t\t\t\"opcao\" : \"B\"\n\t\t}]\n\t},{\n\t\t\"id\" : null,\n\t\t\"descricao\" : \"Qual é linguagem de consulta em banco de dados usando o Hibernate ?\",\n\t\t\"dificuldade\" : \"DIFICIL\",\n\t\t\"gabarito\" : \"C\",\n\t\t\"itens\": [{\n\t\t\t\"id\" : null,\n\t\t\t\"descricao\" : \"JPQL\",\n\t\t\t\"opcao\" : \"A\"\n\t\t},\n\t\t{\n\t\t\t\"id\" : null,\n\t\t\t\"descricao\" : \"JDBC\",\n\t\t\t\"opcao\" : \"B\"\n\t\t},\n\t\t{\n\t\t\t\"id\" : null,\n\t\t\t\"descricao\" : \"HQL\",\n\t\t\t\"opcao\" : \"C\"\n\t\t},\n\t\t{\n\t\t\t\"id\" : null,\n\t\t\t\"descricao\" : \"SQL\",\n\t\t\t\"opcao\" : \"D\"\n\t\t}]\n\t}, {\n\t\t\"id\" : null,\n\t\t\"descricao\" : \"Qual linguagem de programação é responsável pela responsividade de uma tela web ?\",\n\t\t\"dificuldade\" : \"FACIL\",\n\t\t\"gabarito\" : \"B\",\n\t\t\"itens\": [{\n\t\t\t\"id\" : null,\n\t\t\t\"descricao\" : \"HTML\",\n\t\t\t\"opcao\" : \"A\"\n\t\t},\n\t\t{\n\t\t\t\"id\" : null,\n\t\t\t\"descricao\" : \"CSS\",\n\t\t\t\"opcao\" : \"B\"\n\t\t},\n\t\t{\n\t\t\t\"id\" : null,\n\t\t\t\"descricao\" : \"JS\",\n\t\t\t\"opcao\" : \"C\"\n\t\t}]\n\t}]\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/provas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"provas"
+							]
+						},
+						"description": "Ao salvar prova, deve-se especificar todas as questões e seus respectivos itens. Dessa maneira, o sistema salva como CASCADE, relacionando todos os campos.\n\nPara que seja possível salvar a prova, deve-se respeitar o número de questões por dificuldade. Sendo 3 fáceis, 4 médias e 3 difíceis"
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar prova com todas as questões e itens",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/provas/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"provas",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Gabarito de uma prova",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/provas/2/gabarito",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"provas",
+								"2",
+								"gabarito"
+							]
+						},
+						"description": "Especificar o id da prova para ter o gabarito completo."
+					},
+					"response": []
+				},
+				{
+					"name": "Resolver prova",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[ \n\t{\n\t\t\"idQuestao\" : 3,\n\t\t\"opcao\" : \"A\"\n\t},\n\t{\n\t\t\"idQuestao\" : 4,\n\t\t\"opcao\" : \"A\"\n\t}\n]"
+						},
+						"url": {
+							"raw": "http://localhost:8080/provas/resolver-prova",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"provas",
+								"resolver-prova"
+							]
+						},
+						"description": "Para resolver uma prova, basta enviar uma lista de objetos com o id da questão e o item correto. Ao final do processo, será retornado a pontuação do aluno."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Questão",
+			"item": [
+				{
+					"name": "Resolver questão",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"idQuestao\" : 3,\n\t\"opcao\" : \"A\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/questoes/3/resolver-questao",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"questoes",
+								"3",
+								"resolver-questao"
+							]
+						},
+						"description": "Neste recurso, deve-se colocar um objeto com o número da questão e o item que acha-se correto. Como retorno temos uma mensagem indicando a pontuação gerada e a dificuldade caso tenha acertado, ou uma mensagem indicando que o usuário errou a questão."
+					},
+					"response": []
+				},
+				{
+					"name": "Trazer Questão para resolver",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/questoes/3/resolver-questao",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"questoes",
+								"3",
+								"resolver-questao"
+							]
+						},
+						"description": "Este recurso traz a questão pelo id sem o gabarito"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Classificação",
+			"item": [
+				{
+					"name": "Buscar Classificações por Simulado",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/classificacoes/simulado/1?limite=5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"classificacoes",
+								"simulado",
+								"1"
+							],
+							"query": [
+								{
+									"key": "limite",
+									"value": "5"
+								}
+							]
+						},
+						"description": "Neste método, indicamos o id do simulado e o limite para pesquisa. Neste caso, ele traz a classificação e o ranking de cada a aluno com sua pontuação"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
