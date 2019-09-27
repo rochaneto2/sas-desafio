@@ -17,30 +17,30 @@ import static io.vavr.control.Option.ofOptional;
 
 @Service
 public class ServicoSimulado {
-    
+
     private RepositorioSimulado repositorioSimulado;
 
     ServicoSimulado(RepositorioSimulado repositorioSimulado) {
         this.repositorioSimulado = repositorioSimulado;
     }
 
-    public List<Simulado> listarSimulados(){
+    public List<Simulado> listarSimulados() {
         return repositorioSimulado.findAll();
     }
 
-    public Simulado buscarSimuladoPorId(Integer id){
+    public Simulado buscarSimuladoPorId(Integer id) {
         return ofOptional(repositorioSimulado.findById(id)).getOrElseThrow(() -> {
             throw new NoResultException("Não existe um Simulado com o ID especificado!");
         });
     }
 
     @Transactional
-    public Simulado salvarSimulado(Simulado simulado){
+    public Simulado salvarSimulado(Simulado simulado) {
         return repositorioSimulado.saveAndFlush(simulado);
     }
 
     @Transactional
-    public Simulado atualizarSimulado(Integer id, Simulado simulado){
+    public Simulado atualizarSimulado(Integer id, Simulado simulado) {
         Simulado existente = buscarSimuladoPorId(id);
 
         BeanUtils.copyProperties(simulado, existente, "id");
@@ -50,11 +50,11 @@ public class ServicoSimulado {
         return existente;
     }
 
-    public void removerSimuladoPorId(Integer id){
+    public void removerSimuladoPorId(Integer id) {
         repositorioSimulado.delete(buscarSimuladoPorId(id));
     }
 
-    public List<Prova> bucasTodasAsProvasPorSimulado(Integer id){
+    public List<Prova> bucasTodasAsProvasPorSimulado(Integer id) {
         return repositorioSimulado.bucasTodasAsProvasPorSimulado(id);
     }
 }

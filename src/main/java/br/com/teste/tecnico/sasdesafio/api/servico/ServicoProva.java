@@ -2,7 +2,7 @@ package br.com.teste.tecnico.sasdesafio.api.servico;
 
 import br.com.teste.tecnico.sasdesafio.api.repositorio.RepositorioProva;
 import br.com.teste.tecnico.sasdesafio.model.Prova;
-import br.com.teste.tecnico.sasdesafio.model.Questao;
+import br.com.teste.tecnico.sasdesafio.model.util.QtdQuestoes;
 import br.com.teste.tecnico.sasdesafio.model.classesVO.GabaritoVO;
 import br.com.teste.tecnico.sasdesafio.model.enums.DificuldadeQuestaoEnum;
 import org.springframework.beans.BeanUtils;
@@ -17,10 +17,6 @@ import static io.vavr.API.Option;
 
 @Service
 public class ServicoProva {
-
-    private final int qtdFaceis = 3;
-    private final int qtdMedias = 4;
-    private final int qtdDificeis = 3;
 
     private RepositorioProva repositorioProva;
 
@@ -40,7 +36,7 @@ public class ServicoProva {
 
     @Transactional
     public Prova salvarProva(Prova prova) {
-//        verificaQuantidadeDeQuestoes(prova);
+        verificaQuantidadeDeQuestoes(prova);
         return repositorioProva.saveAndFlush(prova);
     }
 
@@ -77,12 +73,11 @@ public class ServicoProva {
                 quantidadesQuestoes.merge(DificuldadeQuestaoEnum.DIFICIL, 1, Integer::sum);
             }
         });
-        if ((Option(quantidadesQuestoes.get(DificuldadeQuestaoEnum.FACIL)).getOrElse(0) != qtdFaceis) &&
-                (Option(quantidadesQuestoes.get(DificuldadeQuestaoEnum.MEDIA)).getOrElse(0) != qtdMedias) &&
-                (Option(quantidadesQuestoes.get(DificuldadeQuestaoEnum.DIFICIL)).getOrElse(0) != qtdDificeis)){
+        if ((Option(quantidadesQuestoes.get(DificuldadeQuestaoEnum.FACIL)).getOrElse(0) != QtdQuestoes.facil) &&
+                (Option(quantidadesQuestoes.get(DificuldadeQuestaoEnum.MEDIA)).getOrElse(0) != QtdQuestoes.media) &&
+                (Option(quantidadesQuestoes.get(DificuldadeQuestaoEnum.DIFICIL)).getOrElse(0) != QtdQuestoes.dificil)) {
             throw new NoResultException("As quantidades de questões por dificuldade fogem da regra de negócio!");
-        }
-        else {
+        } else {
             return true;
         }
     }

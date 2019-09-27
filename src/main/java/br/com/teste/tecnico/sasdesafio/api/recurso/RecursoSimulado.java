@@ -19,18 +19,18 @@ public class RecursoSimulado {
     }
 
     @GetMapping
-    public List<Simulado> listar(){
+    public List<Simulado> listar() {
         return servicoSimulado.listarSimulados();
     }
 
     @PostMapping
-    public Simulado salvar(@Valid @RequestBody Simulado simulado){
+    public Simulado salvar(@Valid @RequestBody Simulado simulado) {
         return servicoSimulado.salvarSimulado(simulado);
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<Simulado> atualizar(@PathVariable Integer id,
-                                           @Valid @RequestBody Simulado simulado) {
+                                              @Valid @RequestBody Simulado simulado) {
         return ResponseEntity.ok(servicoSimulado.atualizarSimulado(id, simulado));
     }
 
@@ -46,7 +46,7 @@ public class RecursoSimulado {
     }
 
     @GetMapping("/{id}/provas")
-    public ResponseEntity buscarProvasPorSimulado(@PathVariable Integer id){
+    public ResponseEntity buscarProvasPorSimulado(@PathVariable Integer id) {
         return ResponseEntity.ok(servicoSimulado.bucasTodasAsProvasPorSimulado(id));
     }
 }

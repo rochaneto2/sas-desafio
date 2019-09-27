@@ -15,7 +15,7 @@ import java.util.Date;
 @NoArgsConstructor
 @Data
 @Entity
-public class Aluno extends EntidadeBase<Integer>{
+public class Aluno extends EntidadeBase<Integer> {
 
     @JsonProperty(value = "nome", required = true)
     @NotNull

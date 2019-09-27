@@ -2,6 +2,8 @@ package br.com.teste.tecnico.sasdesafio.api.recurso;
 
 import br.com.teste.tecnico.sasdesafio.api.servico.ServicoQuestao;
 import br.com.teste.tecnico.sasdesafio.model.Questao;
+import br.com.teste.tecnico.sasdesafio.model.classesVO.GetResponderQuestaoVO;
+import br.com.teste.tecnico.sasdesafio.model.classesVO.PostResponderQuestaoVO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,18 +21,18 @@ public class RecursoQuestao {
     }
 
     @GetMapping
-    public List<Questao> listar(){
+    public List<Questao> listar() {
         return servicoQuestao.listarQuestaos();
     }
 
     @PostMapping
-    public Questao salvar(@Valid @RequestBody Questao questao){
+    public Questao salvar(@Valid @RequestBody Questao questao) {
         return servicoQuestao.salvarQuestao(questao);
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<Questao> atualizar(@PathVariable Integer id,
-                                           @Valid @RequestBody Questao questao) {
+                                             @Valid @RequestBody Questao questao) {
         return ResponseEntity.ok(servicoQuestao.atualizarQuestao(id, questao));
     }
 
@@ -43,5 +45,17 @@ public class RecursoQuestao {
     public ResponseEntity remover(@PathVariable Integer id) {
         servicoQuestao.removerQuestaoPorId(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("{id}/resolver-questao")
+    public ResponseEntity<GetResponderQuestaoVO> resolverQuestaoGet(@PathVariable Integer id) {
+        Questao questao = servicoQuestao.buscarQuestaoPorId(id);
+        return ResponseEntity.ok(new GetResponderQuestaoVO(questao.getId(), questao.getDescricao(), questao.getDificuldade(), questao.getItens()));
+    }
+
+    @PostMapping("{id}/resolver-questao")
+    public String resolverQuestao(@PathVariable Integer id,
+                                  @Valid @RequestBody PostResponderQuestaoVO respostaQuestao) {
+        return servicoQuestao.responderQuestao(id, respostaQuestao);
     }
 }

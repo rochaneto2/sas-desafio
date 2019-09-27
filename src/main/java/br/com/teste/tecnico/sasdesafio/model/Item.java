@@ -15,7 +15,7 @@ import javax.validation.constraints.Size;
 @NoArgsConstructor
 @Data
 @Entity
-public class Item extends EntidadeBase<Integer>{
+public class Item extends EntidadeBase<Integer> {
 
     @JsonProperty(value = "descricao", required = true)
     @NotNull

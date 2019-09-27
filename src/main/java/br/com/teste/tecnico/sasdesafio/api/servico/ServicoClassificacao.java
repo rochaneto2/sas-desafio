@@ -1,7 +1,6 @@
 package br.com.teste.tecnico.sasdesafio.api.servico;
 
 import br.com.teste.tecnico.sasdesafio.api.repositorio.RepositorioClassificacao;
-import br.com.teste.tecnico.sasdesafio.api.repositorio.RepositorioClassificacao;
 import br.com.teste.tecnico.sasdesafio.model.Classificacao;
 import org.springframework.beans.BeanUtils;
 import org.springframework.data.domain.PageRequest;
@@ -15,30 +14,30 @@ import static io.vavr.control.Option.ofOptional;
 
 @Service
 public class ServicoClassificacao {
-    
+
     private RepositorioClassificacao repositorioClassificacao;
 
     ServicoClassificacao(RepositorioClassificacao repositorioClassificacao) {
         this.repositorioClassificacao = repositorioClassificacao;
     }
 
-    public List<Classificacao> listarClassificacaos(){
+    public List<Classificacao> listarClassificacaos() {
         return repositorioClassificacao.findAll();
     }
 
-    public Classificacao buscarClassificacaoPorId(Integer id){
+    public Classificacao buscarClassificacaoPorId(Integer id) {
         return ofOptional(repositorioClassificacao.findById(id)).getOrElseThrow(() -> {
             throw new NoResultException("Não existe uma Classificação com o ID especificado!");
         });
     }
 
     @Transactional
-    public Classificacao salvarClassificacao(Classificacao classificacao){
+    public Classificacao salvarClassificacao(Classificacao classificacao) {
         return repositorioClassificacao.saveAndFlush(classificacao);
     }
 
     @Transactional
-    public Classificacao atualizarClassificacao(Integer id, Classificacao classificacao){
+    public Classificacao atualizarClassificacao(Integer id, Classificacao classificacao) {
         Classificacao existente = buscarClassificacaoPorId(id);
 
         BeanUtils.copyProperties(classificacao, existente, "id");
@@ -48,11 +47,11 @@ public class ServicoClassificacao {
         return existente;
     }
 
-    public void removerClassificacaoPorId(Integer id){
+    public void removerClassificacaoPorId(Integer id) {
         repositorioClassificacao.delete(buscarClassificacaoPorId(id));
     }
 
-    public List<Classificacao> buscarPorSimulado(Integer idSimulado, Integer limite){
-        return repositorioClassificacao.buscarIdSimulado(idSimulado, limite);
+    public List<Classificacao> buscarPorSimulado(Integer idSimulado, Integer limite) {
+        return repositorioClassificacao.buscarIdSimulado(idSimulado, PageRequest.of(0, limite));
     }
 }

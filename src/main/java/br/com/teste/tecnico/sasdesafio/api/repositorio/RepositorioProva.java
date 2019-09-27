@@ -1,7 +1,6 @@
 package br.com.teste.tecnico.sasdesafio.api.repositorio;
 
 import br.com.teste.tecnico.sasdesafio.model.Prova;
-import br.com.teste.tecnico.sasdesafio.model.Questao;
 import br.com.teste.tecnico.sasdesafio.model.classesVO.GabaritoVO;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -15,6 +14,6 @@ public interface RepositorioProva extends JpaRepository<Prova, Integer> {
 
     @Query("SELECT new br.com.teste.tecnico.sasdesafio.model.classesVO.GabaritoVO(q.id, q.gabarito) " +
             "from Questao as q JOIN q.prova as p where p.id = :id")
-    List<GabaritoVO> buscarGabaritosPorProva(@Param("id")Integer id);
+    List<GabaritoVO> buscarGabaritosPorProva(@Param("id") Integer id);
 
 }

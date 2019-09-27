@@ -16,7 +16,7 @@ import java.util.Date;
 @NoArgsConstructor
 @Data
 @Entity
-public class Simulado extends EntidadeBase<Integer>{
+public class Simulado extends EntidadeBase<Integer> {
 
     @JsonProperty(value = "descricao", required = true)
     @NotNull
@@ -28,8 +28,8 @@ public class Simulado extends EntidadeBase<Integer>{
     private LocalDate data;
 
     @JsonCreator
-    public Simulado(@JsonProperty  @Size(min = 3, max = 255) String descricao,
-                    @JsonProperty  String data) {
+    public Simulado(@JsonProperty @Size(min = 3, max = 255) String descricao,
+                    @JsonProperty String data) {
         this.descricao = descricao;
         this.data = LocalDate.parse(data, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
     }

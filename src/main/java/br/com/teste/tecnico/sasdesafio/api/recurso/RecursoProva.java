@@ -2,7 +2,6 @@ package br.com.teste.tecnico.sasdesafio.api.recurso;
 
 import br.com.teste.tecnico.sasdesafio.api.servico.ServicoProva;
 import br.com.teste.tecnico.sasdesafio.model.Prova;
-import br.com.teste.tecnico.sasdesafio.model.Questao;
 import br.com.teste.tecnico.sasdesafio.model.classesVO.GabaritoVO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,12 +20,12 @@ public class RecursoProva {
     }
 
     @GetMapping
-    public List<Prova> listar(){
+    public List<Prova> listar() {
         return servicoProva.listarProvas();
     }
 
     @PostMapping
-    public Prova salvar(@Valid @RequestBody Prova prova){
+    public Prova salvar(@Valid @RequestBody Prova prova) {
         return servicoProva.salvarProva(prova);
     }
 

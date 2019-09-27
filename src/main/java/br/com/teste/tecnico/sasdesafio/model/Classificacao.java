@@ -16,7 +16,7 @@ import java.util.List;
 @NoArgsConstructor
 @Data
 @Entity
-public class Classificacao extends EntidadeBase<Integer>{
+public class Classificacao extends EntidadeBase<Integer> {
 
     @JsonProperty(value = "nota")
     @NotNull

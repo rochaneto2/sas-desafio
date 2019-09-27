@@ -2,7 +2,6 @@ package br.com.teste.tecnico.sasdesafio.api.recurso;
 
 import br.com.teste.tecnico.sasdesafio.api.servico.ServicoClassificacao;
 import br.com.teste.tecnico.sasdesafio.model.Classificacao;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,18 +19,18 @@ public class RecursoClassificacao {
     }
 
     @GetMapping
-    public List<Classificacao> listar(){
+    public List<Classificacao> listar() {
         return servicoClassificacao.listarClassificacaos();
     }
 
     @PostMapping
-    public Classificacao salvar(@Valid @RequestBody Classificacao classificacao){
+    public Classificacao salvar(@Valid @RequestBody Classificacao classificacao) {
         return servicoClassificacao.salvarClassificacao(classificacao);
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<Classificacao> atualizar(@PathVariable Integer id,
-                                           @Valid @RequestBody Classificacao classificacao) {
+                                                   @Valid @RequestBody Classificacao classificacao) {
         return ResponseEntity.ok(servicoClassificacao.atualizarClassificacao(id, classificacao));
     }
 
@@ -46,9 +45,9 @@ public class RecursoClassificacao {
         return ResponseEntity.noContent().build();
     }
 
-    @GetMapping("/simulado/{idSimulado}/{limite}")
+    @GetMapping("/simulado/{idSimulado}")
     public ResponseEntity buscarClassificacaoPorSimulado(@PathVariable Integer idSimulado,
-                                                         @PathVariable Integer limite){
+                                                         @RequestParam Integer limite) {
         return ResponseEntity.ok(servicoClassificacao.buscarPorSimulado(idSimulado, limite));
     }
 }

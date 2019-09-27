@@ -19,12 +19,12 @@ public class RecursoAluno {
     }
 
     @GetMapping
-    public List<Aluno> listar(){
+    public List<Aluno> listar() {
         return servicoAluno.listarAlunos();
     }
 
     @PostMapping
-    public Aluno salvar(@Valid @RequestBody Aluno aluno){
+    public Aluno salvar(@Valid @RequestBody Aluno aluno) {
         return servicoAluno.salvarAluno(aluno);
     }
 

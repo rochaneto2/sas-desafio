@@ -11,12 +11,12 @@ public class GabaritoVO implements Serializable {
     @JsonProperty(value = "gabarito")
     private OpcaoItemEnum gabarito;
 
-    @JsonProperty(value = "id")
-    private Integer id;
+    @JsonProperty(value = "idQuestao")
+    private Integer idQuestao;
 
     @JsonCreator
     public GabaritoVO(@JsonProperty Integer id, @JsonProperty OpcaoItemEnum gabarito) {
-        this.id = id;
+        this.idQuestao = id;
         this.gabarito = gabarito;
     }
 }
