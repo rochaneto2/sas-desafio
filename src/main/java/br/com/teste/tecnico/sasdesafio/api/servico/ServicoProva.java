@@ -3,32 +3,32 @@ package br.com.teste.tecnico.sasdesafio.api.servico;
 import br.com.teste.tecnico.sasdesafio.api.repositorio.RepositorioProva;
 import br.com.teste.tecnico.sasdesafio.model.Prova;
 import br.com.teste.tecnico.sasdesafio.model.Questao;
-import br.com.teste.tecnico.sasdesafio.model.classesVO.PostResponderQuestaoVO;
-import br.com.teste.tecnico.sasdesafio.model.util.QtdQuestoes;
 import br.com.teste.tecnico.sasdesafio.model.classesVO.GabaritoVO;
+import br.com.teste.tecnico.sasdesafio.model.classesVO.PostResponderQuestaoVO;
 import br.com.teste.tecnico.sasdesafio.model.enums.DificuldadeQuestaoEnum;
+import br.com.teste.tecnico.sasdesafio.model.util.QtdQuestoes;
 import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.NoResultException;
 import javax.transaction.Transactional;
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
-import static io.vavr.control.Option.ofOptional;
 import static io.vavr.API.Option;
+import static io.vavr.control.Option.ofOptional;
 
 @Service
 public class ServicoProva {
 
+    private final ServicoQuestao servicoQuestao;
     private RepositorioProva repositorioProva;
 
     ServicoProva(RepositorioProva repositorioProva, ServicoQuestao servicoQuestao) {
         this.repositorioProva = repositorioProva;
         this.servicoQuestao = servicoQuestao;
     }
-
-    private final ServicoQuestao servicoQuestao;
 
     public List<Prova> listarProvas() {
         return repositorioProva.findAll();
@@ -88,9 +88,9 @@ public class ServicoProva {
         }
     }
 
-    public String resolverProva(List<PostResponderQuestaoVO> questoes){
+    public String resolverProva(List<PostResponderQuestaoVO> questoes) {
         Integer notaFinal = 0;
-        for (PostResponderQuestaoVO questaoResposta : questoes){
+        for (PostResponderQuestaoVO questaoResposta : questoes) {
             Questao questao = servicoQuestao.buscarQuestaoPorId(questaoResposta.getIdQuestao());
             Integer valorDaQuestao = servicoQuestao.buscarValorDaQuestaoPorDificuldade(questao.getDificuldade().getValue());
             if (questaoResposta.getOpcao() == questao.getGabarito()) {
@@ -98,6 +98,6 @@ public class ServicoProva {
             }
         }
         notaFinal = notaFinal + 600;
-        return "A nota final do aluno foi : "+ notaFinal;
+        return "A nota final do aluno foi : " + notaFinal;
     }
 }

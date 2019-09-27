@@ -53,7 +53,7 @@ public class RecursoProva {
     }
 
     @PostMapping("/resolver-prova")
-    public String resolverProva(@Valid @RequestBody List<PostResponderQuestaoVO> questoes){
+    public String resolverProva(@Valid @RequestBody List<PostResponderQuestaoVO> questoes) {
         return servicoProva.resolverProva(questoes);
     }
 }

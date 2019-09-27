@@ -5,8 +5,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.databind.JsonNode;
 
-import java.util.stream.Stream;
-
 public enum OpcaoItemEnum {
 
     A("A"),

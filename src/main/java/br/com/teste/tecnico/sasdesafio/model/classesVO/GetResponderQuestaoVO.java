@@ -2,7 +2,6 @@ package br.com.teste.tecnico.sasdesafio.model.classesVO;
 
 import br.com.teste.tecnico.sasdesafio.model.Item;
 import br.com.teste.tecnico.sasdesafio.model.enums.DificuldadeQuestaoEnum;
-import br.com.teste.tecnico.sasdesafio.model.enums.OpcaoItemEnum;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 

@@ -9,9 +9,6 @@ import org.springframework.stereotype.Service;
 import javax.persistence.NoResultException;
 import javax.transaction.Transactional;
 import java.util.List;
-import java.util.Optional;
-
-import static io.vavr.API.Option;
 
 import static io.vavr.control.Option.ofOptional;
 

@@ -2,7 +2,6 @@ package br.com.teste.tecnico.sasdesafio.model.classesVO;
 
 import br.com.teste.tecnico.sasdesafio.model.Aluno;
 import br.com.teste.tecnico.sasdesafio.model.Simulado;
-import br.com.teste.tecnico.sasdesafio.model.enums.OpcaoItemEnum;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -45,10 +44,6 @@ public class ClassificacaoRankingVO implements Serializable {
     @NotNull
     private Integer posRanking;
 
-    public void setPosRanking(Integer posRanking) {
-        this.posRanking = posRanking;
-    }
-
     @JsonCreator
     public ClassificacaoRankingVO(@JsonProperty("id") @NotNull Integer id,
                                   @JsonProperty("nota") @NotNull @Max(value = 1000) @Min(value = 1) Integer nota,
@@ -59,6 +54,10 @@ public class ClassificacaoRankingVO implements Serializable {
         this.nota = nota;
         this.simulado = simulado;
         this.aluno = aluno;
+        this.posRanking = posRanking;
+    }
+
+    public void setPosRanking(Integer posRanking) {
         this.posRanking = posRanking;
     }
 }

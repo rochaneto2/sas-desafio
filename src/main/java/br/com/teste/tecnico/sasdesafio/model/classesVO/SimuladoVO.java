@@ -1,7 +1,6 @@
 package br.com.teste.tecnico.sasdesafio.model.classesVO;
 
 import br.com.teste.tecnico.sasdesafio.model.Prova;
-import br.com.teste.tecnico.sasdesafio.model.Questao;
 
 import java.io.Serializable;
 import java.time.LocalDate;
