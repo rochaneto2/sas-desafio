@@ -52,7 +52,7 @@ public class RecursoProva {
         return ResponseEntity.ok(servicoProva.buscarGabaritoPorProva(id));
     }
 
-    @PostMapping("/resolverProva")
+    @PostMapping("/resolver-prova")
     public String resolverProva(@Valid @RequestBody List<PostResponderQuestaoVO> questoes){
         return servicoProva.resolverProva(questoes);
     }

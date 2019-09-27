@@ -8,6 +8,7 @@ import br.com.teste.tecnico.sasdesafio.model.util.QtdQuestoes;
 import br.com.teste.tecnico.sasdesafio.model.classesVO.GabaritoVO;
 import br.com.teste.tecnico.sasdesafio.model.enums.DificuldadeQuestaoEnum;
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.NoResultException;
@@ -22,11 +23,12 @@ public class ServicoProva {
 
     private RepositorioProva repositorioProva;
 
-    private ServicoQuestao servicoQuestao;
-
-    ServicoProva(RepositorioProva repositorioProva) {
+    ServicoProva(RepositorioProva repositorioProva, ServicoQuestao servicoQuestao) {
         this.repositorioProva = repositorioProva;
+        this.servicoQuestao = servicoQuestao;
     }
+
+    private final ServicoQuestao servicoQuestao;
 
     public List<Prova> listarProvas() {
         return repositorioProva.findAll();
