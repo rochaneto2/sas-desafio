@@ -61,7 +61,7 @@ public class ServicoProva {
         repositorioProva.delete(buscarProvaPorId(id));
     }
 
-    public List<GabaritoVO> buscarGabaritoPorProva(Integer id) {
+    public List<GabaritoVO> listarGabaritoDaProva(Integer id) {
         return repositorioProva.buscarGabaritosPorProva(id);
     }
 
@@ -88,6 +88,7 @@ public class ServicoProva {
         }
     }
 
+    @Transactional
     public String resolverProva(List<PostResponderQuestaoVO> questoes) {
         Integer notaFinal = 0;
         for (PostResponderQuestaoVO questaoResposta : questoes) {

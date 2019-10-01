@@ -52,6 +52,7 @@ public class ServicoClassificacao {
         repositorioClassificacao.delete(buscarClassificacaoPorId(id));
     }
 
+    @Transactional
     public List<ClassificacaoRankingVO> buscarClassificacaoPorSimulado(Integer idSimulado, Integer limite) {
         List<ClassificacaoRankingVO> classificacaoRanking = repositorioClassificacao.buscarClassificacaoPorSimulado(idSimulado, PageRequest.of(0, limite));
         List<Integer> ranking = repositorioClassificacao.buscarRankingSimulado(idSimulado, limite);

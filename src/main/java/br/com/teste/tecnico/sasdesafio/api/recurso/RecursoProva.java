@@ -48,8 +48,8 @@ public class RecursoProva {
     }
 
     @GetMapping("/{id}/gabarito")
-    public ResponseEntity<List<GabaritoVO>> buscarGabaritoPorProva(@PathVariable Integer id) {
-        return ResponseEntity.ok(servicoProva.buscarGabaritoPorProva(id));
+    public ResponseEntity<List<GabaritoVO>> buscarGabaritoDaProva(@PathVariable Integer id) {
+        return ResponseEntity.ok(servicoProva.listarGabaritoDaProva(id));
     }
 
     @PostMapping("/resolver-prova")
