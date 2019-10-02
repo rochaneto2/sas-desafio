@@ -24,8 +24,8 @@ public class RecursoClassificacao {
     }
 
     @PostMapping
-    public Classificacao salvar(@Valid @RequestBody Classificacao classificacao) {
-        return servicoClassificacao.salvarClassificacao(classificacao);
+    public ResponseEntity<Classificacao> salvar(@Valid @RequestBody Classificacao classificacao) {
+        return ResponseEntity.ok(servicoClassificacao.salvarClassificacao(classificacao));
     }
 
     @PutMapping("/{id}")

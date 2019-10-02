@@ -44,7 +44,7 @@ public class Questao extends EntidadeBase<Integer> {
     @NotNull
     @JoinColumn(name = "id_prova", foreignKey = @ForeignKey(name = "fk_prova"), nullable = false)
     private Prova prova;
-    
+
     @PostPersist
     private void posInserir() {
         itens.forEach(i -> i.setQuestao(this));

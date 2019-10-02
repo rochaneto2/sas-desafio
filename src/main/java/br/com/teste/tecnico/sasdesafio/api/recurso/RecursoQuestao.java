@@ -26,8 +26,8 @@ public class RecursoQuestao {
     }
 
     @PostMapping
-    public Questao salvar(@Valid @RequestBody Questao questao) {
-        return servicoQuestao.salvarQuestao(questao);
+    public ResponseEntity<Questao> salvar(@Valid @RequestBody Questao questao) {
+        return ResponseEntity.ok(servicoQuestao.salvarQuestao(questao));
     }
 
     @PutMapping("/{id}")

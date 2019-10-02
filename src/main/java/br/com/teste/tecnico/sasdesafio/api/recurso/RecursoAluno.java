@@ -24,8 +24,8 @@ public class RecursoAluno {
     }
 
     @PostMapping
-    public Aluno salvar(@Valid @RequestBody Aluno aluno) {
-        return servicoAluno.salvarAluno(aluno);
+    public ResponseEntity<Aluno> salvar(@Valid @RequestBody Aluno aluno) {
+        return ResponseEntity.ok(servicoAluno.salvarAluno(aluno));
     }
 
     @PutMapping("/{id}")

@@ -8,11 +8,11 @@ import java.io.Serializable;
 
 public class GabaritoVO implements Serializable {
 
-    @JsonProperty(value = "gabarito")
-    private OpcaoItemEnum gabarito;
-
     @JsonProperty(value = "idQuestao")
     private Integer idQuestao;
+
+    @JsonProperty(value = "gabarito")
+    private OpcaoItemEnum gabarito;
 
     @JsonCreator
     public GabaritoVO(@JsonProperty Integer id, @JsonProperty OpcaoItemEnum gabarito) {
