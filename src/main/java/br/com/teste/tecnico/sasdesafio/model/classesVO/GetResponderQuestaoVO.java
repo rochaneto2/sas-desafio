@@ -28,7 +28,6 @@ public class GetResponderQuestaoVO implements Serializable {
     private DificuldadeQuestaoEnum dificuldade;
 
     @JsonProperty(value = "itens")
-    @OneToMany(fetch = FetchType.LAZY, orphanRemoval = true, mappedBy = "questao", cascade = CascadeType.ALL)
     private List<Item> itens;
 
     @JsonCreator
